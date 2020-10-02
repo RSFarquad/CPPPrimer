@@ -285,12 +285,3 @@ int main(){
 	return 0;
 }
 */
-
-int main(){
-	int sum, val = 0;
-	while (val <= 10)
-	sum += val, ++val;
-
-	cout << sum << endl;
-	return 0;
-}
