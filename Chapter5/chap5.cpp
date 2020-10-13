@@ -199,4 +199,163 @@ int main(){
     return 0;
 }
 */
+/* //p.184 Couldn't figure this out, giving up on coding forevor now. Wish you all the best.
+int main(){
+    string hold;
+    vector<string> vString;
+    do{
+        cin >> hold;
+        vString.push_back(hold);
+    }while (hold != "0");
+
+    auto start = vString.begin();
+    auto end = vString.end();
+    unsigned inc = 0;
+    unsigned rTotal = 0;
+    while ((start + 1) < end){
+        if (vString[inc] == vString[inc + 1]){
+            ++rTotal, ++inc, ++start;
+        }
+        else{
+            ++inc, ++start;
+        }
+    }
+    */
+/* //p.187
+   int main(){
+       vector<string> vStr;
+       string hold;
+       //putting values in the string vector while input isn't 0.
+       cout << "Input string values. Enter 0 to end input.\n";
+       do{
+           cin >> hold;
+           vStr.push_back(hold);
+       }while (hold != "0");
+        //printing all values in the vector with a while statement
+       auto startStr = vStr.begin();
+       auto endStr = vStr.end();
+       unsigned incStr = 0;
+       while (startStr != endStr){
+           cout << vStr[incStr] << "\n";
+           ++incStr, ++startStr;
+       }
+        //printing all values in the vector with a for statement
+       for (auto x : vStr){
+           cout << x << "\n";
+       }
+        //new vector so that we can use while and for statements to access specific values in the vector
+       vector<int> vInt = {1, 2, 3, 4, 5};
+       auto startInt = vInt.begin();
+       auto endInt = vInt.end();
+        //while statement uesed to access the number 3
+       while (startInt != endInt && *startInt != 3){
+           ++startInt;
+       }
+       cout << *startInt << "\n";
+        //for statement used to access the number 3
+       for (auto x : vInt){
+           if (x = 3){
+               cout << x << "\n";
+           }
+           else{
+               ;
+           }
+       }
+       return 0;
+   }
+*/
+/* //p.187 I feel like this was a dumb solution, but I created a for loop that only exists to
+    //capture the size of the initial vector, preventing any attempt for a type conversion
+    //from size_type to int. Maybe it's not dumb and I'm just a coding god......
+int main(){
+    vector<int> vInt1 = {0, 1, 1, 2};
+    vector<int> vInt2 = {0, 1, 1, 2, 3, 5, 8};
+    cout << vInt1.size() << endl;
+    cout << vInt2.size() << endl;
+
+    //HERE IT IS, my dumb tally system.
+    unsigned sizeTally = 0;
+    for (auto x : vInt1){
+        ++sizeTally;
+    }
+    unsigned matchTally = 0;
+    for (unsigned x = 0; x != sizeTally; ++x){
+        if (vInt1[x] == vInt2[x]){
+            ++matchTally;
+        }
+    }
+    
+    if (matchTally == sizeTally && vInt1.size() < vInt2.size()){
+        cout << "The first vector is a prefix for the second.\n";
+    }
+    else if (vInt1.size() == vInt2.size()){
+        cout << "The two vectors are the same size, and as such, can't be prefixes.\n";
+    }
+    else {
+        cout << "The two vectors are not prefixes of each other.\n";
+    }
+
+    return 0;
+}
+*/
+/* //p.189 Kinda wonky cause it freaks out if you have any spaces in your input, but it works.
+int main() {
+    
+    string confirm;
+    do {
+        string s1;
+        string s2;
+        cin >> s1;
+        cin >> s2;
+
+        if  (s1 < s2){
+            cout << "The first string is less than the second.\n";
+        }
+        else if (s2 < s1){
+            cout << "The second string is less than the first.\n";
+        }
+        else{
+            cout << "Something went wrong.\n";
+        }
+        cout << "Would you like to go again? If not, type no. \n";
+        cin >> confirm;
+    }while (confirm != "no");
+
+    return 0;
+}
+*/
+/* //p.191 Super happy with how this turned out. Specifically, forcing the exit by setting
+   //the hold variable to 0 during the else if statement.
+int main() {
+    string hold;
+    string check;
+    unsigned toggle = 0;
+
+    do {
+        cout << "You can exit this loop by typing 0. Enter your next input: \n";
+        cin >> hold;
+        if (hold != "0"){
+            if (hold != check){
+            ; //purposefully left null
+        }
+        else if (hold == check){
+            hold = "0";
+            ++toggle;
+            break;
+        }
+        check = hold;
+        }
+    }while (hold != "0");
+    if (toggle == 1){
+        cout << "Words were repeated. Repeated word was: " << check << ".\n";
+    }
+    else if (toggle == 0){
+        cout << "No words were repeated.\n";
+    }
+    else{
+        cout << "Something went very wrong.\n";
+    }
+    return 0;
+}
+*/
 
