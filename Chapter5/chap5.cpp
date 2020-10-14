@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
+#include <exception>
 using std::vector;
 using std::cin;
 using std::cout;
@@ -358,4 +360,86 @@ int main() {
     return 0;
 }
 */
+/* //p.191 No need for a continue statement anywhere, easily accomplished by adding a
+   //condition to the else if statement.
+int main() {
+    string hold;
+    string check;
+    unsigned toggle = 0;
 
+    do {
+        cout << "You can exit this loop by typing 0. Enter your next input: \n";
+        cin >> hold;
+        if (hold != "0"){
+            if (hold != check){
+            ; //purposefully left null
+        }
+        else if (hold == check && !islower(hold[0])){
+            hold = "0";
+            ++toggle;
+            break;
+        }
+        check = hold;
+        }
+    }while (hold != "0");
+    if (toggle == 1){
+        cout << "Words were repeated. Repeated word was: " << check << ".\n";
+    }
+    else if (toggle == 0){
+        cout << "No words were repeated.\n";
+    }
+    else{
+        cout << "Something went very wrong.\n";
+    }
+    return 0;
+}
+*/
+/* //p.192 No clue if this is right or not, no idea what the purpose of the original code is.
+int main(){
+    int sz = 0;
+    while (sz <= 0){
+        sz = get_size();
+    }
+    return 0;
+}
+*/
+/* //p.197 Creating a new block for the next problem.
+int main(){
+    int i1 = 0;
+    int i2 = 0;
+    cout << "Enter two numbers for division: \n";
+    cin >> i1 >> i2;
+    
+    if (i2 != 0){
+    cout << "Division result is: " << i1/i2 << ".\n";
+    }
+    
+    else if (i2 == 0){
+    throw std::runtime_error("Second number cannot be zero.");
+    return -1;
+    }
+
+    return 0;
+}
+*/
+/* //p.197 Had to look at an example for help with the syntax, but turned out well.
+int main(){
+    int i1 = 0, i2 = 0;
+    cout << "Enter two numbers for division: \n";
+    while (cin >> i1 >> i2){
+    try{
+        if (i2 == 0){
+            throw std::runtime_error("Second number can't be zero!");
+        }
+        cout << "The result of division is: " << i1/i2 << ".\n";
+    } catch (std::runtime_error err){
+        cout << err.what()
+            << "\nEnter a new number: \n";
+        cin >> i2;
+        cout << "The result of division is: " << i1/i2 << ".\n";
+        }
+    }
+    
+    return 0;
+}
+*/
